@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FactZone - Amazing Facts</title>
+
+    <!-- Attractive Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            color: white;
+
+            /* 🌌 Attractive background */
+            background:
+                radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 25%),
+                radial-gradient(circle at 80% 30%, #9333ea 0%, transparent 25%),
+                radial-gradient(circle at 50% 90%, #0ea5e9 0%, transparent 25%),
+                #080b18;
+
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(42px, 10vw, 70px);
+            font-weight: 800;
+
+            background: linear-gradient(
+                90deg,
+                #60a5fa,
+                #c084fc,
+                #f0abfc
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+            text-shadow: 0 0 30px rgba(147, 51, 234, 0.4);
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 9px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* SEARCH */
+        .search {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .search input {
+            width: min(90%, 600px);
+            padding: 17px 22px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+
+            color: white;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+
+            outline: none;
+
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .search input::placeholder {
+            color: #cbd5e1;
+        }
+
+        .search input:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 0 25px rgba(167,139,250,0.35);
+        }
+
+        /* FACT CONTAINER */
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 15px 20px 50px;
+        }
+
+        /* FACT CARD */
+        .fact {
+            margin: 22px 0;
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.13);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.25);
+
+            transition: 0.35s ease;
+
+            animation: appear 0.7s ease;
+        }
+
+        .fact:hover {
+            transform: translateY(-7px) scale(1.01);
+
+            box-shadow:
+                0 15px 45px rgba(139,92,246,0.25);
+
+            border-color: rgba(196,181,253,0.4);
+        }
+
+        .fact h2 {
+            margin: 8px 0;
+            font-size: 24px;
+        }
+
+        .fact p {
+            color: #dbeafe;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* CATEGORY */
+        .category {
+            display: inline-block;
+
+            padding: 5px 12px;
+            border-radius: 20px;
+
+            background: rgba(139,92,246,0.2);
+            color: #c4b5fd;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+
+            background: rgba(0,0,0,0.3);
+
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* ANIMATION */
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            header {
+                padding-top: 40px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            .fact {
+                padding: 20px;
+            }
+
+            .fact h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🧠 FactZone</h1>
+        <p>Discover • Learn • Be Amazed</p>
+    </header>
+
+    <nav>
+        <a href="#">🏠 Home</a>
+        <a href="#">🌌 Space</a>
+        <a href="#">🐾 Animals</a>
+        <a href="#">🔬 Science</a>
+        <a href="#">🌍 Earth</a>
+    </nav>
+
+    <div class="search">
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="🔍 Search amazing facts..."
+            onkeyup="searchFacts()"
+        >
+    </div>
+
+    <div class="container">
+
+        <div class="fact">
+            <span class="category">🌌 SPACE</span>
+            <h2>Fact #1</h2>
+            <p>A day on Venus is longer than a year on Venus.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🐙 ANIMALS</span>
+            <h2>Fact #2</h2>
+            <p>Octopuses have three hearts.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🦈 ANIMALS</span>
+            <h2>Fact #3</h2>
+            <p>Sharks have existed on Earth for hundreds of millions of years.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🌍 EARTH</span>
+            <h2>Fact #4</h2>
+            <p>Earth is the only known planet with large amounts of liquid water on its surface.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">☀️ SPACE</span>
+            <h2>Fact #5</h2>
+            <p>The Sun contains more than 99% of the mass of the Solar System.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🐝 ANIMALS</span>
+            <h2>Fact #6</h2>
+            <p>Honeybees communicate using a movement called the waggle dance.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🪐 SPACE</span>
+            <h2>Fact #7</h2>
+            <p>Saturn is less dense than water.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🦒 ANIMALS</span>
+            <h2>Fact #8</h2>
+            <p>Giraffes have seven neck vertebrae, the same number as humans.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🌙 SPACE</span>
+            <h2>Fact #9</h2>
+            <p>The Moon is Earth's natural satellite.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🧊 SCIENCE</span>
+            <h2>Fact #10</h2>
+            <p>Water expands when it freezes, which is why ice floats.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🐘 ANIMALS</span>
+            <h2>Fact #11</h2>
+            <p>Elephants can communicate using sounds that humans cannot easily hear.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">⚡ SCIENCE</span>
+            <h2>Fact #12</h2>
+            <p>Lightning can heat the surrounding air to extremely high temperatures.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🌳 NATURE</span>
+            <h2>Fact #13</h2>
+            <p>Trees release oxygen as a result of photosynthesis.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🦋 ANIMALS</span>
+            <h2>Fact #14</h2>
+            <p>Butterflies taste using receptors on their feet.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🔴 SPACE</span>
+            <h2>Fact #15</h2>
+            <p>Mars appears red because iron minerals on its surface have oxidized.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🧬 HUMAN BODY</span>
+            <h2>Fact #16</h2>
+            <p>The human body contains trillions of cells.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🌊 OCEAN</span>
+            <h2>Fact #17</h2>
+            <p>Most of Earth's ocean is deeper than 3,000 meters.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🐧 ANIMALS</span>
+            <h2>Fact #18</h2>
+            <p>Penguins are birds, but they cannot fly through the air.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">💎 SCIENCE</span>
+            <h2>Fact #19</h2>
+            <p>Diamond and graphite are both made of carbon, but their atoms are arranged differently.</p>
+        </div>
+
+        <div class="fact">
+            <span class="category">🌌 SPACE</span>
+            <h2>Fact #20</h2>
+            <p>There are billions of galaxies in the observable universe.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 FactZone • Keep Exploring 🚀
+    </footer>
+
+    <script>
+        function searchFacts() {
+
+            let input =
+                document.getElementById("searchBox")
+                .value.toLowerCase();
+
+            let facts =
+                document.getElementsByClassName("fact");
+
+            for (let i = 0; i < facts.length; i++) {
+
+                let text =
+                    facts[i].innerText.toLowerCase();
+
+                if (text.includes(input)) {
+                    facts[i].style.display = "block";
+                } else {
+                    facts[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
